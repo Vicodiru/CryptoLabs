@@ -3,11 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 const TrendingCoin = ({ data }) => {
   const navigate = useNavigate();
+
   const getCoinDetails = (id) => {
     navigate(id);
   };
   return (
-    <div className="w-[40%] bg-gray-200 mb-12 last:mb-0 rounded-lg p-4 relative cursor-pointer hover:bg-gray-100 hover:bg-opacity-40 ">
+    <div
+      className="w-[40%] bg-gray-200 mb-12 last:mb-0 rounded-lg p-4 relative cursor-pointer hover:bg-gray-100 hover:bg-opacity-40"
+      onClick={() => getCoinDetails(data.id)}
+    >
       {data ? (
         <>
           <h3 className="text-base flex items-center my-0.5 ">
@@ -17,7 +21,6 @@ const TrendingCoin = ({ data }) => {
               src={data.small}
               alt={data.name}
               className="w-[1.5rem] h-[1.5rem] mx-1.5 rounded-full"
-              onClick={() => getCoinDetails(data.id)}
             />
           </h3>
           <h3 className="text-base flex items-center my-0.5 ">
